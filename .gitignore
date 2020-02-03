@@ -1,2 +1,3 @@
 WiDiSSLClient/arduino_secrets.h
 WiFiSSLClient/arduino_secrets.h
+WiFiClient/arduino_secrets.h
