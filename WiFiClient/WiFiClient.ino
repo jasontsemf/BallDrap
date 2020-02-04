@@ -39,7 +39,8 @@ int status = WL_IDLE_STATUS;
 // with the IP address and port of the server
 // that you want to connect to (port 80 is default for HTTP):
 WiFiClient client;
-char server[] = "10.18.241.229";
+//char server[] = "10.18.241.229";
+char server[] = "10.18.255.103";
 
 void setup() {
   //Initialize serial and wait for port to open:
@@ -89,9 +90,10 @@ void setup() {
   printWifiStatus();
 
   Serial.println("\nStarting connection to server...");
-  // if you get a connection, report back via serial:
+  // if you get a connection, report back via serial:]
   if (client.connect(server, 8080)) {
     Serial.println("connected to server");
+    client.println("n=Jason\n");
   }
   // start the filter to run at the sample rate:
   filter.begin(sensorRate);
@@ -163,11 +165,11 @@ void loop() {
     digitalWrite(bLedPin, LOW);
     client.stop();
     // do nothing forevermore:
-//    while (true);
     dButtonState = digitalRead(dButton);
     if(dButtonState == LOW){
       if (client.connect(server, 8080)) {
         Serial.println("connected to server");
+        client.println("n=Jason\n");
       }
     }
   }
